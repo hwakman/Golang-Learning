@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestNewElement(t *testing.T) {
 	el := newElement()
@@ -28,5 +30,14 @@ func TestPrintNumberType(t *testing.T) {
 
 	if oddNumber != "1 is odd" {
 		t.Errorf("Invalid result got %s", oddNumber)
+	}
+}
+
+func TestPrintEvenAndOddElements(t *testing.T) {
+	el := newElement()
+	errors := el.printEvenAndOddElements()
+	
+	if len(errors) >= 1 {
+		t.Errorf("Expected error to be 0 got %d", len(errors))
 	}
 }
